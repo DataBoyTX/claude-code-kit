@@ -1,0 +1,56 @@
+{
+  "$schema": "https://code.claude.com/hooks-schema.json",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "name": "format-on-edit",
+        "description": "Auto-format files after Claude edits them",
+        "match": {
+          "tool": "edit_file",
+          "filePatterns": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"]
+        },
+        "command": "npx prettier --write {{filepath}}",
+        "timeout": 10000,
+        "silent": true
+      },
+      {
+        "name": "format-python",
+        "description": "Auto-format Python files after Claude edits them",
+        "match": {
+          "tool": "edit_file",
+          "filePatterns": ["**/*.py"]
+        },
+        "command": "black {{filepath}} 2>/dev/null || true",
+        "timeout": 10000,
+        "silent": true
+      },
+      {
+        "name": "lint-check",
+        "description": "Run quick lint check after edits",
+        "match": {
+          "tool": "edit_file",
+          "filePatterns": ["**/*.ts", "**/*.tsx"]
+        },
+        "command": "npx eslint {{filepath}} --fix --quiet 2>/dev/null || true",
+        "timeout": 15000,
+        "silent": true
+      }
+    ],
+    "PreCommit": [
+      {
+        "name": "typecheck-staged",
+        "description": "Type check before committing",
+        "command": "npm run typecheck 2>/dev/null || true",
+        "timeout": 60000
+      }
+    ],
+    "AgentStop": [
+      {
+        "name": "verification-reminder",
+        "description": "Remind to run verification for long-running tasks",
+        "command": "echo '✅ Task complete. Consider running /verify-app if this was a significant change.'",
+        "timeout": 1000
+      }
+    ]
+  }
+}
