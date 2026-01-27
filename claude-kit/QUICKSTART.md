@@ -3,15 +3,21 @@
 ## Installation
 
 ```bash
-# Option 1: Run installer
+# Interactive setup wizard (RECOMMENDED)
+./setup.sh /path/to/your/project
+# Guides you through: project type, model selection, permissions, MCP servers, etc.
+
+# Simple installer (manual configuration required)
 ./install.sh /path/to/your/project
 
-# Option 2: Copy manually
+# Manual copy
 cp -r claude-kit/.claude /path/to/project/
 cp -r claude-kit/subagents /path/to/project/
 cp claude-kit/.mcp.json /path/to/project/
 cp claude-kit/CLAUDE.md /path/to/project/  # if no existing CLAUDE.md
 ```
+
+**Need detailed documentation?** See [FEATURES.md](../FEATURES.md) for comprehensive guides on all features.
 
 ## What Gets Installed
 
@@ -63,8 +69,23 @@ claude --dangerously-skip-permissions
 
 ## Customization Checklist
 
+After running `setup.sh`, these are automatically configured. If using manual installation:
+
 - [ ] Edit `CLAUDE.md` with your project specifics
 - [ ] Add API tokens to `.mcp.json` (Slack, GitHub, Sentry, etc.)
 - [ ] Review `.claude/settings.json` - add/remove allowed commands
+- [ ] Configure auto-formatting in `.claude/hooks.json`
+- [ ] Set model and thinking budget in `.claude/settings.json`
 - [ ] Add project-specific slash commands to `.claude/commands/`
 - [ ] Customize subagents for your verification needs
+
+## Further Reading
+
+**For detailed documentation on all features:**
+- [FEATURES.md](../FEATURES.md) - Complete feature reference
+  - Configuration options
+  - Slash command reference
+  - Subagent usage guide
+  - Hooks and MCP server setup
+  - Workflows and best practices
+  - Troubleshooting guide
