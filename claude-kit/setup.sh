@@ -77,9 +77,9 @@ ask_choice() {
     shift
     local options=("$@")
 
-    echo -e "${CYAN}?${NC} $prompt"
+    echo -e "${CYAN}?${NC} $prompt" >&2
     for i in "${!options[@]}"; do
-        echo "  $((i+1)). ${options[$i]}"
+        echo "  $((i+1)). ${options[$i]}" >&2
     done
 
     local choice
@@ -89,7 +89,7 @@ ask_choice() {
             echo "${options[$((choice-1))]}"
             return
         fi
-        print_error "Invalid choice. Please enter a number between 1 and ${#options[@]}"
+        echo -e "${RED}✗${NC} Invalid choice. Please enter a number between 1 and ${#options[@]}" >&2
     done
 }
 
@@ -111,9 +111,11 @@ main() {
             TARGET="$(pwd)"
         else
             TARGET=$(ask_input "Enter target directory path")
-            TARGET="${TARGET/#\~/$HOME}"
         fi
     fi
+
+    # Expand tilde in target path
+    TARGET="${TARGET/#\~/$HOME}"
 
     print_info "Installing to: $TARGET"
 
@@ -241,7 +243,8 @@ main() {
         while true; do
             cmd=$(ask_input "Command to allow (or press Enter to finish)" "")
             [ -z "$cmd" ] && break
-            CUSTOM_COMMANDS="$CUSTOM_COMMANDS      \"Bash($cmd:*)\",\n"
+            CUSTOM_COMMANDS="${CUSTOM_COMMANDS}      \"Bash($cmd:*)\",
+"
         done
     fi
 
@@ -373,11 +376,15 @@ main() {
     mkdir -p "$TARGET/subagents"
 
     print_step "Copying slash commands..."
-    cp "$SCRIPT_DIR/.claude/commands/"*.md "$TARGET/.claude/commands/"
+    for file in "$SCRIPT_DIR/.claude/commands"/*.md; do
+        [ -f "$file" ] && cp "$file" "$TARGET/.claude/commands/"
+    done
     print_success "Installed slash commands: /commit-push-pr, /debug, /plan, /review, /test"
 
     print_step "Copying subagents..."
-    cp "$SCRIPT_DIR/subagents/"*.md "$TARGET/subagents/"
+    for file in "$SCRIPT_DIR/subagents"/*.md; do
+        [ -f "$file" ] && cp "$file" "$TARGET/subagents/"
+    done
     print_success "Installed subagents: build-validator, code-architect, code-simplifier, oncall-guide, verify-app"
 
     # Generate settings.json
