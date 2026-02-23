@@ -47,13 +47,15 @@ You can press Enter to accept defaults shown in parentheses.
   Step 3: Claude Model Selection
 ═══════════════════════════════════════════════════════
 
-Opus 4.5: Larger, slower, but requires less steering (recommended for complex work)
-Sonnet 4.5: Faster, cheaper, good for simpler tasks
+Opus 4.6: Most capable, best for complex work (recommended)
+Sonnet 4.6: Fast and capable, good balance
+Haiku 4.5: Fastest and cheapest, good for simple tasks
 
 ? Select Claude model:
-  1. Opus 4.5 (recommended)
-  2. Sonnet 4.5
-? Enter choice [1-2]: 1
+  1. Opus 4.6 (recommended)
+  2. Sonnet 4.6
+  3. Haiku 4.5
+? Enter choice [1-3]: 1
 
 ? Extended thinking budget:
   1. High (most thorough)
@@ -123,7 +125,7 @@ You can configure API tokens now or add them later to .mcp.json
 ➜ Copying subagents...
 ✓ Installed subagents: build-validator, code-architect, code-simplifier, oncall-guide, verify-app
 ➜ Generating .claude/settings.json...
-✓ Generated settings.json with claude-opus-4-5-20250514 and high thinking
+✓ Generated settings.json with claude-opus-4-6 and high thinking
 ➜ Generating .claude/hooks.json...
 ✓ Configured auto-formatting with prettier
 ➜ Generating .mcp.json...
@@ -141,7 +143,7 @@ You can configure API tokens now or add them later to .mcp.json
 ✓ Installed to: /home/user/my-project
 
 Configuration Summary:
-  • Model: claude-opus-4-5-20250514
+  • Model: claude-opus-4-6
   • Thinking: high
   • Auto-accept edits: false
   • Auto-formatting: prettier
@@ -214,7 +216,7 @@ Based on your choices, contains:
 **Example:**
 ```json
 {
-  "model": "claude-opus-4-5-20250514",
+  "model": "claude-opus-4-6",
   "thinking": {
     "enabled": true,
     "budget": "high"
@@ -338,7 +340,7 @@ Edit `.claude/settings.json`:
 Edit `.claude/settings.json`:
 ```json
 {
-  "model": "claude-sonnet-4-5-20250929",  // Switch to Sonnet
+  "model": "claude-sonnet-4-6",  // Switch to Sonnet
   "thinking": {
     "enabled": true,
     "budget": "medium"  // Lower thinking budget

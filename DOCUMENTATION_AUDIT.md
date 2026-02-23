@@ -75,7 +75,7 @@ All subagents .................. ✓ (5 files)
 
 ### ✅ Consistent Terminology
 - Slash commands: `/commit-push-pr`, `/debug`, `/plan`, `/review`, `/test`
-- Model names: `claude-opus-4-5-20250514`, `claude-sonnet-4-5-20250929`
+- Model names: `claude-opus-4-6`, `claude-sonnet-4-6`, `claude-haiku-4-5-20251001`
 - Keyboard shortcuts: `shift+tab` (twice) for Plan Mode
 - File paths: Consistent use of `.claude/`, `subagents/`, etc.
 

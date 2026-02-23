@@ -193,20 +193,25 @@ main() {
     # Step 3: Model Selection
     print_header "Step 3: Claude Model Selection"
 
-    echo "Opus 4.5: Larger, slower, but requires less steering (recommended for complex work)"
-    echo "Sonnet 4.5: Faster, cheaper, good for simpler tasks"
+    echo "Opus 4.6: Most capable, best for complex work (recommended)"
+    echo "Sonnet 4.6: Fast and capable, good balance"
+    echo "Haiku 4.5: Fastest and cheapest, good for simple tasks"
     echo ""
 
     MODEL_CHOICE=$(ask_choice "Select Claude model:" \
-        "Opus 4.5 (recommended)" \
-        "Sonnet 4.5")
+        "Opus 4.6 (recommended)" \
+        "Sonnet 4.6" \
+        "Haiku 4.5")
 
     if [[ "$MODEL_CHOICE" == *"Opus"* ]]; then
-        MODEL="claude-opus-4-5-20250514"
+        MODEL="claude-opus-4-6"
         THINKING_DEFAULT="high"
-    else
-        MODEL="claude-sonnet-4-5-20250929"
+    elif [[ "$MODEL_CHOICE" == *"Sonnet"* ]]; then
+        MODEL="claude-sonnet-4-6"
         THINKING_DEFAULT="medium"
+    else
+        MODEL="claude-haiku-4-5-20251001"
+        THINKING_DEFAULT="low"
     fi
 
     # Thinking budget

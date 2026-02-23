@@ -13,7 +13,7 @@ cd claude-kit
 
 The setup wizard will guide you through:
 - ✓ Project type detection (Node, Python, Go, Rust, etc.)
-- ✓ Model selection (Opus 4.5 vs Sonnet 4.5)
+- ✓ Model selection (Opus 4.6, Sonnet 4.6, Haiku 4.5)
 - ✓ Permission configuration
 - ✓ Auto-formatting setup
 - ✓ MCP server configuration (GitHub, Slack, etc.)
@@ -100,21 +100,27 @@ Comprehensive reference covering:
 
 ### 3. Model Configuration
 
-**Opus 4.5 (Recommended for complex work):**
-> "Even though it's bigger & slower than Sonnet, since you have to steer it less and it's better at tool use, it is almost always faster in the end."
-
+**Opus 4.6 (Recommended for complex work):**
 ```json
 {
-  "model": "claude-opus-4-5-20250514",
+  "model": "claude-opus-4-6",
   "thinking": { "enabled": true, "budget": "high" }
 }
 ```
 
-**Sonnet 4.5 (For simpler tasks):**
+**Sonnet 4.6 (General development):**
 ```json
 {
-  "model": "claude-sonnet-4-5-20250929",
+  "model": "claude-sonnet-4-6",
   "thinking": { "enabled": true, "budget": "medium" }
+}
+```
+
+**Haiku 4.5 (Quick, simple tasks):**
+```json
+{
+  "model": "claude-haiku-4-5-20251001",
+  "thinking": { "enabled": true, "budget": "low" }
 }
 ```
 
@@ -297,7 +303,7 @@ your-repo/
 |---------|----------|
 | Confirming every command | Pre-allow permissions in settings.json |
 | Repeating prompts | Slash commands with pre-computed context |
-| Steering Claude | Use Opus 4.5 with extended thinking |
+| Steering Claude | Use Opus 4.6 with extended thinking |
 | Back-and-forth on approach | Plan mode first, then auto-accept |
 | Manual verification | Subagents + hooks |
 | Waiting for completion | Parallel sessions + notifications |

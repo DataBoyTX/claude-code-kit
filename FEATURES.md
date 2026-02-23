@@ -20,28 +20,35 @@
 **What it does:** Controls which Claude model handles your requests
 
 **Options:**
-- **Opus 4.5** (`claude-opus-4-5-20250514`)
-  - Larger, more capable model
+- **Opus 4.6** (`claude-opus-4-6`)
+  - Most capable model
   - Better at complex reasoning and tool use
   - Requires less steering/intervention
-  - **Recommended for:** Complex refactoring, architecture decisions, debugging
+  - **Recommended for:** Complex refactoring,
+    architecture decisions, debugging
 
-- **Sonnet 4.5** (`claude-sonnet-4-5-20250929`)
-  - Faster responses
-  - Lower cost
-  - Good for straightforward tasks
-  - **Recommended for:** Simple edits, bug fixes, well-defined tasks
+- **Sonnet 4.6** (`claude-sonnet-4-6`)
+  - Fast and capable
+  - Good balance of speed and quality
+  - **Recommended for:** General development,
+    bug fixes, well-defined tasks
+
+- **Haiku 4.5** (`claude-haiku-4-5-20251001`)
+  - Fastest and cheapest
+  - Good for simple, straightforward tasks
+  - **Recommended for:** Quick edits, simple fixes
 
 **Configuration:** `.claude/settings.json`
 ```json
 {
-  "model": "claude-opus-4-5-20250514"
+  "model": "claude-opus-4-6"
 }
 ```
 
 **When to switch:**
 - Use Opus for greenfield development and complex tasks
-- Use Sonnet for maintenance and simple changes
+- Use Sonnet for general development
+- Use Haiku for quick, simple changes
 
 ---
 
@@ -160,10 +167,10 @@
 
 ```json
 {
-  "$schema": "https://code.claude.com/settings-schema.json",
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
 
   // Model and thinking
-  "model": "claude-opus-4-5-20250514",
+  "model": "claude-opus-4-6",
   "thinking": {
     "enabled": true,
     "budget": "high"  // "high" | "medium" | "low"
@@ -198,7 +205,7 @@
 Create `.claude/settings.local.json` for machine-specific settings:
 ```json
 {
-  "model": "claude-sonnet-4-5-20250929",
+  "model": "claude-sonnet-4-6",
   "autoAcceptEdits": true
 }
 ```
