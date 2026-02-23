@@ -1,5 +1,4 @@
 {
-  "$schema": "https://code.claude.com/hooks-schema.json",
   "hooks": {
     "PostToolUse": [
       {

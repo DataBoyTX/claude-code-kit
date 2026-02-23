@@ -1,5 +1,4 @@
 {
-  "$schema": "https://code.claude.com/mcp-schema.json",
   "mcpServers": {
     "slack": {
       "command": "npx",
