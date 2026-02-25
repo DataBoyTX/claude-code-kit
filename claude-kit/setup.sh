@@ -396,7 +396,7 @@ main() {
     print_step "Generating .claude/settings.json..."
     cat > "$TARGET/.claude/settings.json" << EOF
 {
-  "\$schema": "https://code.claude.com/settings-schema.json",
+  "\$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
       "Bash(npm:*)",
