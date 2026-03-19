@@ -462,12 +462,10 @@ ${CUSTOM_COMMANDS}      "Read(*)",
     "deny": [
       "Bash(sudo:*)",
       "Bash(su:*)",
-      "Bash(rm -rf /)",
-      "Bash(rm -rf /*)",
-      "Bash(:(){ :|:& };:)",
-      "Bash(> /dev/sda)",
-      "Bash(dd if=/dev/zero of=/dev/sda)",
-      "Bash(mkfs.*)"
+      "Bash(*rm -rf /*)",
+      "Bash(*mkfs*)",
+      "Bash(*> /dev/sd*)",
+      "Bash(*dd if=*/dev/*)"
     ]
   },
   "model": "$MODEL",
