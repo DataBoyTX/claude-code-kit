@@ -1,5 +1,28 @@
 # Session Summary
 
+## Date: 2026-04-09
+
+### Documentation Update
+- Added PERFORMANCE_GUIDE.md to README.md documentation table, repo structure diagram, and next steps section
+- Created SUMMARY.md - concise repository overview covering what the kit solves, what's included, key performance patterns, and models
+- Updated DOCUMENTATION_AUDIT.md with current audit (all checks passing, PERFORMANCE_GUIDE.md now cross-referenced)
+- Removed stale "(NEW!)" markers from README.md
+- Updated docs/SESSION_SUMMARY.md
+
+### Commits
+- On branch `update-docs-and-summary`
+
+---
+
+## Date: 2026-04-01
+
+### Performance Guide
+- Created PERFORMANCE_GUIDE.md - shareable 10-point optimization guide
+- Covers: permission pre-approval, auto-format hooks, Plan Mode, background agents, parallel sessions, slash commands, CLAUDE.md, model selection, verification, MCP servers
+- On branch `add-performance-guide` (commit 14a012e)
+
+---
+
 ## Date: 2026-02-27
 
 ## Completed
