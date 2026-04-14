@@ -36,8 +36,10 @@ cp claude-kit/CLAUDE.md /path/to/project/
 ```
 claude-code-kit/
 ├── README.md                      # This file
-├── FEATURES.md                    # Complete feature reference (NEW!)
-├── SETUP_EXAMPLE.md               # Setup wizard walkthrough (NEW!)
+├── SUMMARY.md                     # Repository summary
+├── FEATURES.md                    # Complete feature reference
+├── PERFORMANCE_GUIDE.md           # Shareable performance optimization tips
+├── SETUP_EXAMPLE.md               # Setup wizard walkthrough
 └── claude-kit/                    # Portable kit (copy this to your project)
     ├── setup.sh                   # Interactive setup wizard (NEW!)
     ├── install.sh                 # Simple installer
@@ -67,7 +69,9 @@ claude-code-kit/
 
 | File | Purpose |
 |------|---------|
+| **[SUMMARY.md](SUMMARY.md)** | **Repository summary - start here for an overview** |
 | **[FEATURES.md](FEATURES.md)** | **Complete feature reference with examples** |
+| **[PERFORMANCE_GUIDE.md](PERFORMANCE_GUIDE.md)** | **Shareable performance optimization tips** |
 | **[SETUP_EXAMPLE.md](SETUP_EXAMPLE.md)** | **Setup wizard walkthrough and examples** |
 | `QUICKSTART.md` | Quick reference for common tasks |
 | `CLAUDE.md` | Team knowledge base template (customize for your project) |
@@ -88,7 +92,7 @@ Walks you through configuration with:
 
 **No manual configuration needed** - the wizard handles everything!
 
-### 2. Complete Feature Documentation (`FEATURES.md`)
+### 2. Feature Documentation (`FEATURES.md`)
 
 Comprehensive reference covering:
 - All configuration options with examples
@@ -319,8 +323,9 @@ your-repo/
    ./setup.sh /path/to/your/project
    ```
 
-2. **Read the comprehensive guide:**
+2. **Read the guides:**
    - [FEATURES.md](FEATURES.md) - Complete feature reference with examples
+   - [PERFORMANCE_GUIDE.md](PERFORMANCE_GUIDE.md) - Quick optimization tips to share with your team
    - [QUICKSTART.md](claude-kit/QUICKSTART.md) - Quick reference for common workflows
 
 3. **Customize for your project:**
